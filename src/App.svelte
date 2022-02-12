@@ -27,8 +27,10 @@
 </script>
 
 <main class="m-auto p-2" style="max-width: 700px;">
-    <h2 class="text-center" style="padding-bottom: .5rem;">EngineX</h2>
-    <h6 class="text-center">Your question assitant by Eric Echemane</h6>
+    <div class="py-1">
+        <h2 class="text-center" style="padding-bottom: .5rem;">EngineX</h2>
+        <h6 class="text-center">Your question assitant by Eric Echemane</h6>
+    </div>
     <div class="py-1">
         <textarea
             class="m-auto w-full"

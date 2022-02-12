@@ -98,3 +98,6 @@ button:focus {
 .text-center {
 	text-align: center;
 }
+button {
+	padding: 1rem;
+}
