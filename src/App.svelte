@@ -38,7 +38,7 @@
                 href="https://github.com/EricEchemane/OpenAI-Completer"
                 icon
             >
-                <i class="bx bxl-github" title="Toggle Theme" />
+                <i class="bx bxl-github" />
             </a>
             <!-- <i class={isDarkTheme ? "bx bx-sun" : "bx bx-moon"} /> -->
         </div>
