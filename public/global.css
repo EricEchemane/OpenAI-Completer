@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
+:root {
+	/* light Theme */
+	--border-color: hsl(0, 0%, 80%);
+	--bg-color: hsl(0, 0%, 100%);
+}
+
 html, body {
 	position: relative;
 	width: 100%;
@@ -11,14 +18,17 @@ html, body {
 	box-sizing: border-box;
 }
 body {
-	color: #000;
+	color: var(--body-color);
+	background-color: var(--bg-color);
 }
 
 a {
 	color: rgb(0,100,200);
 	text-decoration: none;
 }
-
+a[icon] {
+	color: #000 !important;
+}
 a:hover {
 	text-decoration: underline;
 }
@@ -38,7 +48,7 @@ input, button, select, textarea {
 	padding: 0.4em;
 	margin: 0 0 0.5em 0;
 	box-sizing: border-box;
-	border: 1px solid #ccc;
+	border: 1px solid #cccccc;
 	border-radius: 2px;
 }
 
@@ -100,4 +110,9 @@ button:focus {
 }
 button {
 	padding: 1rem;
+	text-transform: uppercase;
+}
+i {
+	font-size: 1.5rem;
+	padding: .25rem;
 }
