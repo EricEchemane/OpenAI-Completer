@@ -21,6 +21,10 @@
         query = e.target.value;
     }
 
+    function clearAnswer() {
+        answer = "Answer will appear here";
+    }
+
     function toggleCommandOptions() {
         commandOptionsIsShown = !commandOptionsIsShown;
     }
@@ -30,6 +34,7 @@
         query = currentCommand.command;
         answered = false;
         commandOptionsIsShown = false;
+        clearAnswer();
     }
 
     async function generateAnswer() {
