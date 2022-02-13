@@ -87,6 +87,11 @@
             style="font-size: .8rem;"
             on:input={handleChangeQuery}
             placeholder="EngineX has answer for everything. Enter a command/question or choose commands from above."
+            on:keydown={(e) => {
+                if (e.key === "Enter" && e.ctrlKey == true) {
+                    generateAnswer();
+                }
+            }}
         />
     </div>
 
