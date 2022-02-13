@@ -150,3 +150,7 @@ button.engine::before {
     border-radius: 6px;
     background: conic-gradient(from 147.14deg at 50% 50%,#0294fe -55.68deg,#ff2136 113.23deg,#9b4dff 195deg,#0294fe 304.32deg,#ff2136 473.23deg);
 }
+textarea.engine{
+	transition: 200ms;
+	border: 2px solid hsla(0, 0%, 100%, 1);
+}

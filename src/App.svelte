@@ -7,12 +7,15 @@
     let isDarkTheme = false;
     let currentCommand;
     let buttonTitle = "Generate Answer";
+    let answered = false;
 
     $: if (currentCommand) {
         query = currentCommand.command;
+        answered = false;
     }
 
     function handleChangeQuery(e) {
+        answered = false;
         query = e.target.value;
     }
 
@@ -22,6 +25,7 @@
     });
 
     async function generateAnswer() {
+        answered = false;
         isLoading = true;
         buttonTitle = "Engine started...";
         const url = "https://ees-openai-completer.herokuapp.com/complete";
@@ -38,6 +42,7 @@
         answer = data.choices[0].text.substring(2);
         isLoading = false;
         buttonTitle = "Generate Answer";
+        answered = true;
     }
 </script>
 
@@ -97,7 +102,7 @@
 
     <div class="py-1">
         <textarea
-            class="m-auto w-full rounded"
+            class={"m-auto w-full rounded" + (answered ? " engine" : "")}
             style="font-size: .8rem;"
             name="answer"
             id="answer"
