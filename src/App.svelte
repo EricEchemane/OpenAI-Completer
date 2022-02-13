@@ -56,7 +56,7 @@
 
     <div class="py-1">
         <h2 class="text-center" style="padding-bottom: .5rem;">EngineX</h2>
-        <h6 class="text-center">Your OpenAI Assitant | Eric Echemane</h6>
+        <h6 class="text-center">Your OpenAI Assistant | Eric Echemane</h6>
     </div>
 
     <div class="py-1">
