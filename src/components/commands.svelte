@@ -55,5 +55,6 @@
     }
     .option:hover {
         backdrop-filter: brightness(2);
+        color: hsl(0, 0%, 100%);
     }
 </style>

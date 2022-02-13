@@ -167,7 +167,7 @@
         border: 1px solid hsla(0, 0%, 100%, 0.5);
     }
     #dimmer {
-        background-color: hsla(0, 0%, 0%, 0.5);
+        background-color: hsla(0, 0%, 100%, 0.1);
         position: absolute;
         height: 100%;
         top: 0;
