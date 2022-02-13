@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
-:root {
-	/* light Theme */
-	--border-color: hsl(0, 0%, 80%);
-	--bg-color: hsl(0, 0%, 100%);
-}
-
 html, body {
 	position: relative;
 	width: 100%;
@@ -16,12 +10,17 @@ html, body {
 	margin: 0;
 	font-family: 'Inter', sans-serif;
 	box-sizing: border-box;
+	color: whitesmoke;
 }
 body {
-	color: var(--body-color);
-	background-color: var(--bg-color);
+	/* background: linear-gradient(135deg, hsl(253, 92%, 5%), hsl(357, 92%, 5%)); */
+	background: conic-gradient(from 147.14deg at 50% 50%,hsl(205, 97%, 5%) -55.68deg,hsl(354, 97%, 5%) 113.23deg,hsl(266, 97%, 5%) 195deg,hsl(205, 97%, 5%) 304.32deg,hsl(354, 97%, 5%) 473.23deg);
+	min-height: 100vh;
 }
-
+h6 {
+	color: hsl(0, 0%, 90%);
+	font-weight: 400;
+}
 a {
 	color: rgb(0,100,200);
 	text-decoration: none;
@@ -42,36 +41,25 @@ label {
 }
 
 input, button, select, textarea {
-	font-family: inherit;
-	font-size: inherit;
-	-webkit-padding: 0.4em 0;
-	padding: 0.4em;
-	margin: 0 0 0.5em 0;
-	box-sizing: border-box;
-	border: 1px solid #cccccc;
-	border-radius: 2px;
+	background-color: hsla(0, 0%, 100%, .1);
+	color: whitesmoke;
+	transition: 200ms;
+}
+input, select, textarea {
+	backdrop-filter: blur(1rem);
+}
+
+select:focus, textarea:focus {
+	outline: none;
+	border: 1px solid hsla(0, 0%, 100%, 1);
+}
+
+option {
+	color: black !important;
 }
 
 input:disabled {
 	color: #ccc;
-}
-
-button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
-}
-
-button:disabled {
-	color: #999;
-}
-
-button:not(:disabled):active {
-	background-color: #ddd;
-}
-
-button:focus {
-	border-color: #666;
 }
 
 .m-auto {
@@ -109,8 +97,14 @@ button:focus {
 	text-align: center;
 }
 button {
+	outline: none;
+	border: none;
 	padding: 1rem;
 	text-transform: uppercase;
+	color: black !important;
+}
+button[disabled] {
+	opacity: .7;
 }
 i {
 	font-size: 1.5rem;
@@ -118,7 +112,7 @@ i {
 }
 
 .rounded {
-	border-radius: .3rem;
+	border-radius: 5px;
 }
 
 textarea {
@@ -126,5 +120,36 @@ textarea {
 	padding: .75rem;
 }
 select {
-	background-color: var(--bg-color);
+	padding: .75rem;
+}
+p {
+	font-weight: 200;
+}
+
+button.engine {
+	font-size: .8rem;
+	font-weight: 600;
+	position: relative;
+	background-color: hsla(0, 0%, 100%, .8);
+	transition: 300ms;
+	cursor: pointer;
+}
+button.engine:hover {
+	background-color: hsla(0, 0%, 100%, 1);
+}
+button.engine:focus {
+	background-color: hsla(0, 0%, 100%, 1);
+}
+button.engine::before {
+	content: "";
+    position: absolute;
+    top: 5px;
+    bottom: 0;
+    left: 5px;
+    right: 5px;
+    z-index: -1;
+    background: conic-gradient(from 147.14deg at 50% 50%,#0294fe -55.68deg,#ff2136 113.23deg,#9b4dff 195deg,#0294fe 304.32deg,#ff2136 473.23deg);
+    opacity: .6;
+    filter: blur(20px);
+    border-radius: 6px;
 }

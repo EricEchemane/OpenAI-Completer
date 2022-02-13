@@ -6,6 +6,7 @@
     let isLoading = false;
     let isDarkTheme = false;
     let currentCommand;
+    let buttonTitle = "Generate Answer";
 
     $: if (currentCommand) {
         query = currentCommand.command;
@@ -22,6 +23,7 @@
 
     async function generateAnswer() {
         isLoading = true;
+        buttonTitle = "Engine started...";
         const url = "https://ees-openai-completer.herokuapp.com/complete";
         const response = await fetch(url, {
             method: "POST",
@@ -35,6 +37,7 @@
         const data = await response.json();
         answer = data.choices[0].text.substring(2);
         isLoading = false;
+        buttonTitle = "Generate Answer";
     }
 </script>
 
@@ -74,10 +77,10 @@
         </select>
 
         {#if currentCommand}
-            <div style="font-size: .8rem; padding: 1rem 0; line-height: 170%;">
+            <p style="font-size: .8rem; padding: 1rem 0; line-height: 170%;">
                 <em>Instruction:</em>
                 {currentCommand.instruction} <br />
-            </div>
+            </p>
         {/if}
 
         <textarea
@@ -106,11 +109,11 @@
 
     <div class="py-1">
         <button
-            class="w-full rounded"
+            class="w-full rounded engine"
             on:click={generateAnswer}
-            disabled={isLoading}
+            disabled={isLoading || query === ""}
         >
-            {isLoading ? "Loading..." : "Generate Answer"}
+            {buttonTitle}
         </button>
     </div>
 </main>
@@ -124,5 +127,6 @@
     #logo {
         width: 30px;
         height: 30px;
+        filter: invert(100%);
     }
 </style>
