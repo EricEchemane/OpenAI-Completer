@@ -1,10 +1,8 @@
 <script>
-    import { onMount } from "svelte";
     import commands from "./lib/commands";
     let query = "";
     let answer = "Answer will appear here";
     let isLoading = false;
-    let isDarkTheme = false;
     let currentCommand;
     let buttonTitle = "Generate Answer";
     let answered = false;
@@ -18,11 +16,6 @@
         answered = false;
         query = e.target.value;
     }
-
-    onMount(() => {
-        // document.getElementById("query").focus();
-        isDarkTheme = localStorage.getItem("theme") === "dark";
-    });
 
     async function generateAnswer() {
         answered = false;
@@ -49,21 +42,18 @@
 <main class="m-auto p-2" style="max-width: 700px;">
     <nav>
         <img id="logo" src="/favicon.png" alt="logo" />
-        <div>
-            <a
-                title="Give a star"
-                target="_blank"
-                href="https://github.com/EricEchemane/OpenAI-Completer"
-                icon
-            >
-                <i class="bx bxl-github" />
-            </a>
-            <!-- <i class={isDarkTheme ? "bx bx-sun" : "bx bx-moon"} /> -->
-        </div>
+        <h2 class="text-center">EngineX</h2>
+        <a
+            title="Give a star"
+            target="_blank"
+            href="https://github.com/EricEchemane/OpenAI-Completer"
+            icon
+        >
+            <i class="bx bxl-github" />
+        </a>
     </nav>
 
     <div class="py-1">
-        <h2 class="text-center" style="padding-bottom: .5rem;">EngineX</h2>
         <h6 class="text-center">Your OpenAI Assistant | Eric Echemane</h6>
     </div>
 
