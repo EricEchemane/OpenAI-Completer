@@ -9,6 +9,7 @@ const commands = [
         command_name: "Generate code",
         instruction: "Describe the code you want to generate",
         command: "Generate a python code that will print the number of days in a month",
+        icon: "<i class='bx bx-code-curly' ></i>"
     },
     {
         command_name: "Grammar correction",
