@@ -41,6 +41,7 @@
         border-radius: 5px;
         width: max-content;
         font-size: 0.8rem;
+        overflow: hidden;
     }
     .option {
         color: hsl(0, 0%, 80%);
