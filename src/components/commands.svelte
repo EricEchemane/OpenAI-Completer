@@ -46,11 +46,10 @@
     }
     .option {
         color: hsl(0, 0%, 80%);
-        padding: 0.5rem;
-        padding-right: 2rem;
+        padding: 0.5rem 2rem 0.5rem 0.75rem;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.75rem;
         cursor: pointer;
     }
     .option:hover {
