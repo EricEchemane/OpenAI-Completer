@@ -167,7 +167,7 @@
         border: 1px solid hsla(0, 0%, 100%, 0.5);
     }
     #dimmer {
-        background-color: hsla(0, 0%, 100%, 0.1);
+        background-color: hsla(0, 0%, 0%, 0.5);
         position: absolute;
         height: 100%;
         top: 0;
@@ -175,5 +175,7 @@
         bottom: 0;
         right: 0;
         z-index: 9;
+        box-shadow: 0px 0px 7px rgba(0, 0, 0, 1);
+        backdrop-filter: blur(1px);
     }
 </style>
