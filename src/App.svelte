@@ -1,11 +1,15 @@
 <script>
-    import commands from "./lib/commands";
+    import { fade } from "svelte/transition";
+
+    import CommandOptions from "./components/commands.svelte";
+
     let query = "";
     let answer = "Answer will appear here";
     let isLoading = false;
     let currentCommand;
     let buttonTitle = "Generate Answer";
     let answered = false;
+    let commandOptionsIsShown = false;
 
     $: if (currentCommand) {
         query = currentCommand.command;
@@ -15,6 +19,17 @@
     function handleChangeQuery(e) {
         answered = false;
         query = e.target.value;
+    }
+
+    function toggleCommandOptions() {
+        commandOptionsIsShown = !commandOptionsIsShown;
+    }
+
+    function changeCurrentCommand(newCommand) {
+        currentCommand = newCommand;
+        query = currentCommand.command;
+        answered = false;
+        commandOptionsIsShown = false;
     }
 
     async function generateAnswer() {
@@ -39,6 +54,17 @@
     }
 </script>
 
+{#if commandOptionsIsShown}
+    <CommandOptions {changeCurrentCommand} />
+{/if}
+{#if commandOptionsIsShown}
+    <div
+        id="dimmer"
+        transition:fade={{ duration: 150 }}
+        on:click={() => (commandOptionsIsShown = false)}
+    />
+{/if}
+
 <main class="m-auto p-2" style="max-width: 700px;">
     <nav>
         <img id="logo" src="/favicon.png" alt="logo" />
@@ -49,7 +75,7 @@
             href="https://github.com/EricEchemane/OpenAI-Completer"
             icon
         >
-            <i class="bx bxl-github" />
+            <i class="bx bxl-github" id="github-icon" />
         </a>
     </nav>
 
@@ -58,18 +84,9 @@
     </div>
 
     <div class="py-1">
-        <select
-            name="commands"
-            id="commands"
-            class="w-full rounded"
-            style="margin-bottom: 1rem;"
-            bind:value={currentCommand}
-        >
-            <option hidden value={undefined}>Choose a command</option>
-            {#each commands as command}
-                <option value={command}> {command.command_name} </option>
-            {/each}
-        </select>
+        <div id="select" on:click={toggleCommandOptions}>
+            <span>Choose command </span><i class="bx bx-chevron-down" />
+        </div>
 
         {#if currentCommand}
             <p style="font-size: .8rem; padding: 1rem 0; line-height: 170%;">
@@ -128,5 +145,30 @@
         width: 30px;
         height: 30px;
         filter: invert(100%);
+    }
+    #select {
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        border: 1px solid hsla(0, 0%, 100%, 0.3);
+        font-size: 0.8rem;
+        margin-bottom: 1.5rem;
+        cursor: pointer;
+        transition: 200ms;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #select:hover {
+        border: 1px solid hsla(0, 0%, 100%, 0.5);
+    }
+    #dimmer {
+        background-color: hsla(0, 0%, 0%, 0.5);
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 9;
     }
 </style>
