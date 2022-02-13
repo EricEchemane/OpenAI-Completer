@@ -1,12 +1,22 @@
 <script>
     import { onMount } from "svelte";
-    let query;
+    import commands from "./lib/commands";
+    let query = "";
     let answer = "Answer will appear here";
     let isLoading = false;
     let isDarkTheme = false;
+    let currentCommand;
+
+    $: if (currentCommand) {
+        query = currentCommand.command;
+    }
+
+    function handleChangeQuery(e) {
+        query = e.target.value;
+    }
 
     onMount(() => {
-        document.getElementById("query").focus();
+        // document.getElementById("query").focus();
         isDarkTheme = localStorage.getItem("theme") === "dark";
     });
 
@@ -50,29 +60,53 @@
     </div>
 
     <div class="py-1">
+        <select
+            name="commands"
+            id="commands"
+            class="w-full rounded"
+            bind:value={currentCommand}
+        >
+            <option hidden value={undefined}>Choose a command</option>
+            {#each commands as command}
+                <option value={command}> {command.command_name} </option>
+            {/each}
+        </select>
+
+        {#if currentCommand}
+            <div style="font-size: .8rem; padding: 1rem 0; line-height: 170%;">
+                <b>Instruction:</b>
+                {currentCommand.instruction} <br />
+            </div>
+        {/if}
+
         <textarea
-            class="m-auto w-full"
+            class="m-auto w-full rounded"
             name="query"
             id="query"
-            rows="8"
-            bind:value={query}
-            placeholder="EngineX has answer for everything. Enter question or command here..."
+            autoresize
+            value={query}
+            on:input={handleChangeQuery}
+            placeholder="EngineX has answer for everything. Enter a command/question or choose commands from above."
         />
     </div>
 
     <div class="py-1">
         <textarea
-            class="m-auto w-full"
+            class="m-auto w-full rounded"
             name="answer"
             id="answer"
-            rows="8"
             bind:value={answer}
             disabled
+            autoresize
         />
     </div>
 
     <div class="py-1">
-        <button class="w-full" on:click={generateAnswer} disabled={isLoading}>
+        <button
+            class="w-full rounded"
+            on:click={generateAnswer}
+            disabled={isLoading}
+        >
             {isLoading ? "Loading..." : "Generate Answer"}
         </button>
     </div>

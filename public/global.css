@@ -116,3 +116,11 @@ i {
 	font-size: 1.5rem;
 	padding: .25rem;
 }
+
+.rounded {
+	border-radius: .3rem;
+}
+
+textarea {
+	min-height: 150px;
+}
