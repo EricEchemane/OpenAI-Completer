@@ -103,9 +103,6 @@ button {
 	text-transform: uppercase;
 	color: black !important;
 }
-button[disabled] {
-	opacity: .7;
-}
 i {
 	font-size: 1.5rem;
 	padding: .25rem;
