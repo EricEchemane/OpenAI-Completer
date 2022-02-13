@@ -123,6 +123,7 @@ i {
 
 textarea {
 	min-height: 150px;
+	padding: .75rem;
 }
 select {
 	background-color: var(--bg-color);

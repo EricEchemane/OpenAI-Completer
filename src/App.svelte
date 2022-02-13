@@ -75,7 +75,7 @@
 
         {#if currentCommand}
             <div style="font-size: .8rem; padding: 1rem 0; line-height: 170%;">
-                <b>Instruction:</b>
+                <em>Instruction:</em>
                 {currentCommand.instruction} <br />
             </div>
         {/if}
