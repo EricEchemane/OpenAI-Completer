@@ -5,6 +5,11 @@ const commands = [
         command: "Who was president of the United States in 1955?",
     },
     {
+        command_name: "Generate code",
+        instruction: "Describe the code you want to generate",
+        command: "Generate a python code that will print the number of days in a month",
+    },
+    {
         command_name: "Grammar correction",
         instruction: "Replace the sentence on the 3rd line.",
         command: "Correct this to standard English:\n\nI hungry on today",
