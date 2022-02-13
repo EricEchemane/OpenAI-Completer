@@ -42,6 +42,7 @@
         width: max-content;
         font-size: 0.8rem;
         overflow: hidden;
+        padding: 0.65rem 0;
     }
     .option {
         color: hsl(0, 0%, 80%);
@@ -53,6 +54,6 @@
         cursor: pointer;
     }
     .option:hover {
-        backdrop-filter: brightness(1.5);
+        backdrop-filter: brightness(2);
     }
 </style>
