@@ -118,6 +118,16 @@
     </div>
 
     <div class="py-1">
+        <button
+            class="w-full rounded engine"
+            on:click={generateAnswer}
+            disabled={isLoading || query === ""}
+        >
+            {buttonTitle}
+        </button>
+    </div>
+
+    <div class="py-1">
         <textarea
             class={"m-auto w-full rounded" + (answered ? " engine" : "")}
             style="font-size: .8rem;"
@@ -127,16 +137,6 @@
             disabled
             autoresize
         />
-    </div>
-
-    <div class="py-1">
-        <button
-            class="w-full rounded engine"
-            on:click={generateAnswer}
-            disabled={isLoading || query === ""}
-        >
-            {buttonTitle}
-        </button>
     </div>
 </main>
 
