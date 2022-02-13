@@ -124,3 +124,6 @@ i {
 textarea {
 	min-height: 150px;
 }
+select {
+	background-color: var(--bg-color);
+}
