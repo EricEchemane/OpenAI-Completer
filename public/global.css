@@ -145,8 +145,8 @@ button.engine::before {
     left: 5px;
     right: 5px;
     z-index: -1;
-    background: conic-gradient(from 147.14deg at 50% 50%,#0294fe -55.68deg,#ff2136 113.23deg,#9b4dff 195deg,#0294fe 304.32deg,#ff2136 473.23deg);
     opacity: .6;
     filter: blur(20px);
     border-radius: 6px;
+    background: conic-gradient(from 147.14deg at 50% 50%,#0294fe -55.68deg,#ff2136 113.23deg,#9b4dff 195deg,#0294fe 304.32deg,#ff2136 473.23deg);
 }
