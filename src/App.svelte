@@ -64,6 +64,7 @@
             name="commands"
             id="commands"
             class="w-full rounded"
+            style="margin-bottom: 1rem;"
             bind:value={currentCommand}
         >
             <option hidden value={undefined}>Choose a command</option>
@@ -85,6 +86,7 @@
             id="query"
             autoresize
             value={query}
+            style="font-size: .8rem;"
             on:input={handleChangeQuery}
             placeholder="EngineX has answer for everything. Enter a command/question or choose commands from above."
         />
@@ -93,6 +95,7 @@
     <div class="py-1">
         <textarea
             class="m-auto w-full rounded"
+            style="font-size: .8rem;"
             name="answer"
             id="answer"
             bind:value={answer}
