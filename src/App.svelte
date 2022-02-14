@@ -2,6 +2,7 @@
     import { fade } from "svelte/transition";
 
     import CommandOptions from "./components/commands.svelte";
+    import Disclaimer from "./components/disclaimer.svelte";
 
     let query = "";
     let answer = "Answer will appear here";
@@ -10,6 +11,7 @@
     let buttonTitle = "Generate Answer";
     let answered = false;
     let commandOptionsIsShown = false;
+    let disclaimerIsShown = true;
 
     $: if (currentCommand) {
         query = currentCommand.command;
@@ -21,13 +23,12 @@
         query = e.target.value;
     }
 
-    function clearAnswer() {
-        answer = "Answer will appear here";
-    }
+    const clearAnswer = () => (answer = "Answer will appear here");
 
-    function toggleCommandOptions() {
-        commandOptionsIsShown = !commandOptionsIsShown;
-    }
+    const toggleCommandOptions = () =>
+        (commandOptionsIsShown = !commandOptionsIsShown);
+
+    const closeDisclaimer = () => (disclaimerIsShown = false);
 
     function changeCurrentCommand(newCommand) {
         currentCommand = newCommand;
@@ -62,11 +63,17 @@
 {#if commandOptionsIsShown}
     <CommandOptions {changeCurrentCommand} />
 {/if}
-{#if commandOptionsIsShown}
+{#if disclaimerIsShown}
+    <Disclaimer close={closeDisclaimer} />
+{/if}
+{#if commandOptionsIsShown || disclaimerIsShown}
     <div
         id="dimmer"
         transition:fade={{ duration: 150 }}
-        on:click={() => (commandOptionsIsShown = false)}
+        on:click={() => {
+            commandOptionsIsShown = false;
+            disclaimerIsShown = false;
+        }}
     />
 {/if}
 

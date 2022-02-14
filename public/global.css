@@ -35,7 +35,7 @@ label {
 	display: block;
 }
 
-input, button, select, textarea, #select {
+input, select, textarea, #select {
 	background-color: hsla(0, 0%, 100%, .1);
 	color: whitesmoke;
 	transition: 200ms;
@@ -120,7 +120,6 @@ select {
 p {
 	font-weight: 200;
 }
-
 button.engine {
 	font-size: .8rem;
 	font-weight: 600;
