@@ -72,7 +72,6 @@
         transition:fade={{ duration: 150 }}
         on:click={() => {
             commandOptionsIsShown = false;
-            disclaimerIsShown = false;
         }}
     />
 {/if}
