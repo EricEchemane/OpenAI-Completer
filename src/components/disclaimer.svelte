@@ -1,21 +1,22 @@
 <script>
-    export let close;
+    // export let close;
     import { slide } from "svelte/transition";
 </script>
 
 <main transition:slide={{ duration: 128 }}>
     <h4 class="text-center" style="margin-bottom: .75rem;">Important!</h4>
     <p class="text-center" style="line-height: 190%;">
-        This application uses an OpenAI free trial. If this application starts
+        <!-- This application uses an OpenAI free trial. If this application starts
         to fail, it is likely due to the API key being overused. In that case,
-        please contact the developer if you have something to help.
+        please contact the developer if you have something to help. -->
+        Sorry, this application is currently under maintainance.
     </p>
     <hr />
-    <button on:click={close}> I understand </button>
+    <!-- <button on:click={close}> I understand </button> -->
 </main>
 
 <style>
-    button:hover {
+    /* button:hover {
         background-color: hsla(0, 0%, 100%, 0.1);
     }
     button:active {
@@ -31,7 +32,7 @@
         font-size: 0.8rem;
         font-weight: 600;
         transition: 100ms;
-    }
+    } */
     hr {
         opacity: 0.1;
         margin: 1rem 0;
