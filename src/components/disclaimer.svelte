@@ -9,7 +9,7 @@
         <!-- This application uses an OpenAI free trial. If this application starts
         to fail, it is likely due to the API key being overused. In that case,
         please contact the developer if you have something to help. -->
-        Due to exccedence of API calls, this application is currently unavailable.
+        Due to exceedance of API calls, this application is currently unavailable.
     </p>
     <hr />
     <!-- <button on:click={close}> I understand </button> -->
