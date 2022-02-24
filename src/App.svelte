@@ -47,21 +47,22 @@
             .getElementById("generate-button")
             .classList.add("fade-animate");
         const url = "https://ees-openai-completer.herokuapp.com/complete";
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                query: query,
-            }),
-        });
-        if (response.status === 200) {
+
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    query: query,
+                }),
+            });
             const data = await response.json();
             answer = data.choices[0].text.substring(2);
             buttonTitle = "Generate Answer";
             answered = true;
-        } else {
+        } catch (error) {
             buttonTitle = "Error: API key overused";
             document.getElementById("generate-button").classList.add("error");
         }
