@@ -4,7 +4,7 @@
 </script>
 
 <main transition:slide={{ duration: 128 }}>
-    <h4 class="text-center" style="margin-bottom: .75rem;">Important!</h4>
+    <h4 class="text-center" style="margin-bottom: 1rem;">IMPORTANT</h4>
     <p class="text-center" style="line-height: 190%;">
         This application uses an OpenAI free trial. If this application starts
         to fail, it is likely due to the API key being overused. In that case,

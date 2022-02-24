@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 *  {
 	padding: 0;
@@ -126,9 +126,11 @@ button.engine {
 	position: relative;
 	background-color: hsla(0, 0%, 100%, .8);
 	transition: 300ms;
+	width: 100% !important;
 	cursor: pointer;
+	margin: 1rem auto;
 }
-button.engine:hover {
+button.engine:not(:disabled):hover {
 	background-color: hsla(0, 0%, 100%, 1);
 }
 button.engine:focus {
@@ -145,9 +147,25 @@ button.engine::before {
     opacity: .6;
     filter: blur(20px);
     border-radius: 6px;
+	transition: 200ms;
     background: conic-gradient(from 147.14deg at 50% 50%,#0294fe -55.68deg,#ff2136 113.23deg,#9b4dff 195deg,#0294fe 304.32deg,#ff2136 473.23deg);
 }
 textarea.engine{
 	transition: 200ms;
 	border: 2px solid hsla(0, 0%, 100%, 1);
+}
+
+button.fade-animate::before {
+	animation: fade 2s infinite ease-in-out;
+}
+
+@keyframes fade {
+	0% { opacity: .1; }
+	50% { opacity: 1; }
+	100% { opacity: .1; }
+}
+
+button.error {
+	background: linear-gradient(135deg, hsl(305, 88%, 55%),hsl(0, 88%, 55%), hsl(330, 100%, 50%));
+	color: white !important;
 }

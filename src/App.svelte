@@ -42,6 +42,10 @@
         answered = false;
         isLoading = true;
         buttonTitle = "Engine started...";
+        document.getElementById("generate-button").classList.remove("error");
+        document
+            .getElementById("generate-button")
+            .classList.add("fade-animate");
         const url = "https://ees-openai-completer.herokuapp.com/complete";
         const response = await fetch(url, {
             method: "POST",
@@ -52,11 +56,19 @@
                 query: query,
             }),
         });
-        const data = await response.json();
-        answer = data.choices[0].text.substring(2);
+        if (response.status === 200) {
+            const data = await response.json();
+            answer = data.choices[0].text.substring(2);
+            buttonTitle = "Generate Answer";
+            answered = true;
+        } else {
+            buttonTitle = "Error: API key overused";
+            document.getElementById("generate-button").classList.add("error");
+        }
         isLoading = false;
-        buttonTitle = "Generate Answer";
-        answered = true;
+        document
+            .getElementById("generate-button")
+            .classList.remove("fade-animate");
     }
 </script>
 
@@ -123,15 +135,14 @@
         />
     </div>
 
-    <div class="py-1">
-        <button
-            class="w-full rounded engine"
-            on:click={generateAnswer}
-            disabled={isLoading || query === ""}
-        >
-            {buttonTitle}
-        </button>
-    </div>
+    <button
+        class="rounded engine"
+        on:click={generateAnswer}
+        id="generate-button"
+        disabled={isLoading || query === ""}
+    >
+        {buttonTitle}
+    </button>
 
     <div class="py-1">
         <textarea
