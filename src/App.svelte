@@ -8,7 +8,7 @@
     let answer = "Answer will appear here";
     let isLoading = false;
     let currentCommand;
-    let buttonTitle = "Generate Answer";
+    let buttonTitle = "Enter a command first";
     let answered = false;
     let commandOptionsIsShown = false;
     let disclaimerIsShown = true;
@@ -16,6 +16,10 @@
     $: if (currentCommand) {
         query = currentCommand.command;
         answered = false;
+    }
+
+    $: if (query.length > 5) {
+        buttonTitle = "Generate answer";
     }
 
     function handleChangeQuery(e) {

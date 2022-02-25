@@ -158,7 +158,9 @@ textarea.engine{
 button.fade-animate::before {
 	animation: fade 2s infinite ease-in-out;
 }
-
+button:disabled {
+	cursor: not-allowed;
+}
 @keyframes fade {
 	0% { opacity: .1; }
 	50% { opacity: 1; }

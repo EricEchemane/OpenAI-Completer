@@ -35,7 +35,7 @@
     }
     hr {
         opacity: 0.1;
-        margin: 1rem 0;
+        margin: 0.5rem 0;
     }
     main {
         background: linear-gradient(
